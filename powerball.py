@@ -2,7 +2,13 @@ import random as rand
 
 entries = []
 
-numberOfEntries = input("How many entries do you want?")
+numberOfEntries = 0
+
+while (numberOfEntries <= 0):
+    try:
+        numberOfEntries = int(input("How many entries do you want?"))
+    finally:
+        continue
 
 while len(entries) < numberOfEntries:
     numbers = []
@@ -12,6 +18,7 @@ while len(entries) < numberOfEntries:
         if number not in numbers:
             numbers.append(number)
 
+    numbers.sort()
     numbers.append(rand.randrange(1, 21))
 
     if numbers not in entries:
